@@ -59,3 +59,39 @@ To understand how to read, summarize and visualize a dataset.
 ## Conclusion
 The Iris dataset is clean, balanced, and ideal for basic exploratory analysis. Visualization techniques like scatter plots, histograms, and box plots reveal the feature distributions and inter-species relationships, helping identify key discriminative features for classification tasks.
 
+
+# Task 3: Predicting Insurance Claim Amounts
+
+## Objective
+Estimate medical insurance claim amounts based on personal data using a Linear Regression model.
+
+## Approach
+1. **Data Loading & Cleaning**  
+   - Loaded dataset (`insurance.csv`) with 1338 entries and 7 columns.  
+   - Checked for missing values and duplicates (1 duplicate removed).  
+
+2. **Feature Encoding**  
+   - Applied One-Hot Encoding to categorical features: `sex`, `smoker`, `region`.  
+
+3. **Exploratory Data Analysis (EDA)**  
+   - Scatter plots: `age` and `BMI` vs. `charges` (smoker status highlighted).  
+   - Box plot: `smoker` vs. `charges`.  
+   - Correlation heatmap: `age`, `BMI`, `smoker`, `charges`.  
+   - Insights: Smoking status strongly increases charges; BMI and age positively correlate with charges.  
+
+4. **Model Building**  
+   - Split data into train/test sets (80/20) and applied standard scaling.  
+   - Trained Linear Regression model to predict insurance charges.  
+
+5. **Model Evaluation**  
+   - Mean Absolute Error (MAE): 4196.01  
+   - Root Mean Squared Error (RMSE): 5988.39   
+
+## Results & Insights
+- **Major Influencers:** Smoking status, BMI, and age.  
+- Smoking has the strongest impact on insurance costs.  
+- Model provides reasonable predictions, but extreme claim amounts may have higher errors.  
+
+## Conclusion
+The Linear Regression model effectively captures the relationship between personal features and insurance charges, with smoking, age, and BMI being key predictors. The MAE and RMSE provide quantitative measures of prediction accuracy.
+

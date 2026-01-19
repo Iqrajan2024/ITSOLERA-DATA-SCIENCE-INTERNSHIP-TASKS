@@ -95,3 +95,41 @@ Estimate medical insurance claim amounts based on personal data using a Linear R
 ## Conclusion
 The Linear Regression model effectively captures the relationship between personal features and insurance charges, with smoking, age, and BMI being key predictors. The MAE and RMSE provide quantitative measures of prediction accuracy.
 
+
+# Task 4: Credit Risk Prediction
+
+## Objective
+Ptedict whether a loan applicant is likely to default on a loan. 
+
+## Approach
+1. **Data Loading & Cleaning**  
+   - Loaded dataset with 614 entries and 13 columns.  
+   - Handled missing values in categorical features with mode and numerical features with median.  
+   - Removed unnecessary columns (`Loan_ID`) and verified no duplicates remain.  
+
+2. **Exploratory Data Analysis (EDA)**  
+   - **Univariate Analysis:** KDE plots and boxplots for numerical features (`ApplicantIncome`, `CoapplicantIncome`, `LoanAmount`, `Credit_History`).  
+   - **Bivariate Analysis:** Boxplots and countplots to explore feature relationships with `Loan_Status`.  
+   - **Target Analysis:** Loan approval distribution: 422 approved vs 192 not approved.  
+   - **Correlation:** Credit history most correlated with loan approval.  
+
+3. **Feature Encoding**  
+   - Ordinal encoding for `Education` and `Dependents`.  
+   - One-hot encoding for nominal categorical features (`Gender`, `Married`, `Self_Employed`, `Property_Area`, `Loan_Amount_Term`).  
+
+4. **Model Building**  
+   - Split dataset into training (80%) and testing (20%) sets.  
+   - Standardized numerical features and concatenated with categorical features.  
+   - Trained a **Logistic Regression** model to predict loan approval.  
+
+5. **Model Evaluation**  
+   - Accuracy: 0.76  
+   - Confusion Matrix visualized via heatmap
+
+## Results & Insights
+- **Key Influencers:** Credit history, income, and loan amount.  
+- Higher credit history and income, with lower loan amounts, increase chances of approval.  
+- Logistic Regression achieved 76% accuracy, effectively distinguishing high-risk applicants.  
+
+## Conclusion
+The model demonstrates strong predictive ability for loan approvals. Proper preprocessing, feature encoding, and scaling ensured accurate predictions. Credit history remains the most decisive factor in the approval process, with income and loan amount also influencing outcomes.

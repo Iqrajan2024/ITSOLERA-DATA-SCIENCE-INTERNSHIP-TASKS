@@ -133,3 +133,46 @@ Ptedict whether a loan applicant is likely to default on a loan.
 
 ## Conclusion
 The model demonstrates strong predictive ability for loan approvals. Proper preprocessing, feature encoding, and scaling ensured accurate predictions. Credit history remains the most decisive factor in the approval process, with income and loan amount also influencing outcomes.
+
+# Task 5: Customer Churn Prediction for Bank Customers
+
+## Objective
+Predict the likelihood of a bank customer leaving (churn) using customer data.
+
+## Approach
+1. **Data Loading & Cleaning**  
+   - Loaded dataset with 10,000 entries and 14 columns.  
+   - No missing values or duplicates found.  
+   - Removed unnecessary columns (`RowNumber`, `CustomerId`, `Surname`).  
+
+2. **Exploratory Data Analysis (EDA)**  
+   - **Univariate Analysis:** Histograms for numerical features (`CreditScore`, `Age`, `Balance`, `EstimatedSalary`).  
+   - **Bivariate Analysis:** Boxplots and countplots to study feature relationships with churn (`Exited`).  
+   - Target distribution: 20.37% customers exited, 79.63% stayed.  
+
+3. **Feature Encoding**  
+   - One-hot encoding for categorical features: `Geography` and `Gender`.  
+
+4. **Model Building (ANN)**  
+   - Split dataset into training (80%) and testing (20%) sets.  
+   - Scaled features using StandardScaler.  
+   - Built a neural network with:  
+     - Input layer → Dense(10, ReLU) → Dense(8, ReLU) → Output layer (1, Sigmoid)  
+   - Compiled with binary cross-entropy loss and Adam optimizer.  
+
+5. **Model Evaluation**  
+   - Accuracy: 78.8%  
+   - Confusion Matrix showed good identification of non-churners; some churners misclassified.  
+
+6. **Feature Importance Analysis**  
+   - Tenure, HasCrCard, IsActiveMember, and Age were the most influential features.  
+   - Gender and Geography had minimal impact.  
+
+## Results & Insights
+- Customers with longer tenure, credit cards, and active accounts are key predictors of churn.  
+- Financial behavior and lifecycle stage are more predictive than demographics.  
+- ANN model effectively identifies at-risk customers for targeted retention strategies.  
+
+## Conclusion
+The neural network model provides a robust method for predicting customer churn with 78.8% accuracy. Feature importance insights allow banks to focus retention efforts on behavioral and lifecycle factors rather than demographics alone.
+
